@@ -5,6 +5,10 @@ import Footer from './Footer';
 import AddItem from './AddItem';
 import { useState } from "react";
 
+if (!localStorage.getItem("shoppinglist")) {
+  localStorage.setItem("shoppinglist", JSON.stringify([]))
+}
+
 function App() {
   const [items, setItems] = useState(JSON.parse(localStorage.getItem("shoppinglist")));
   const [newItem, setNewItem] = useState('');
